@@ -1,0 +1,9 @@
+classes:
+  - router
+  - switch
+  - firewall
+  - server
+  - client
+  - cloud
+  - database
+

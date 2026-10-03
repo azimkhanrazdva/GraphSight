@@ -1,0 +1,30 @@
+{
+  "gir_version": "1.0",
+  "document": {
+    "id": "example_network_v2",
+    "filename": "network-demo-v2.png",
+    "mime_type": "image/png",
+    "sha256": "example-v2",
+    "created_at": "2026-10-02T00:00:00Z"
+  },
+  "pages": [{ "page": 1, "width": 900, "height": 420, "coordinate_system": "original_image_pixels" }],
+  "nodes": [
+    { "id": "router_a", "type": "router", "label": "Router A", "properties": {}, "bbox": { "x": 80, "y": 180, "width": 120, "height": 70 }, "page": 1, "confidence": 0.91, "evidence_ids": ["ev_router"] },
+    { "id": "server_c", "type": "server", "label": "Server C", "properties": {}, "bbox": { "x": 640, "y": 180, "width": 120, "height": 70 }, "page": 1, "confidence": 0.91, "evidence_ids": ["ev_server"] }
+  ],
+  "edges": [
+    { "id": "edge_ac", "source": "router_a", "target": "server_c", "type": "connection", "directed": true, "confidence": 0.75, "evidence_ids": ["ev_ac"], "verification_status": "probable", "checks": [] }
+  ],
+  "groups": [],
+  "labels": [],
+  "connectors": [],
+  "evidence": [
+    { "id": "ev_router", "type": "object_detection", "source": "example", "confidence": 0.91, "page": 1, "bbox": { "x": 80, "y": 180, "width": 120, "height": 70 }, "geometry": {}, "metadata": {} },
+    { "id": "ev_server", "type": "object_detection", "source": "example", "confidence": 0.91, "page": 1, "bbox": { "x": 640, "y": 180, "width": 120, "height": 70 }, "geometry": {}, "metadata": {} },
+    { "id": "ev_ac", "type": "pixel_connector", "source": "example", "confidence": 0.75, "page": 1, "bbox": null, "geometry": { "points": [{ "x": 200, "y": 215 }, { "x": 640, "y": 215 }] }, "metadata": {} }
+  ],
+  "conflicts": [],
+  "uncertainties": [],
+  "metadata": { "source": "hand-authored example" }
+}
+

@@ -1,0 +1,42 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    environment:
+      GRAPHSIGHT_STORAGE_DIR: /data
+      GRAPHSIGHT_CORS_ORIGINS: http://localhost:3000
+      DATABASE_URL: postgresql+psycopg://graphsight:graphsight@postgres:5432/graphsight
+    volumes:
+      - graphsight-data:/data
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    environment:
+      VITE_API_BASE: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: graphsight
+      POSTGRES_PASSWORD: graphsight
+      POSTGRES_DB: graphsight
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  graphsight-data:
+  postgres-data:
+

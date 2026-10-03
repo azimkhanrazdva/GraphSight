@@ -1,0 +1,12 @@
+allowed_relations:
+  router:
+    - switch
+    - firewall
+    - router
+  firewall:
+    - switch
+    - server
+  switch:
+    - server
+    - client
+
